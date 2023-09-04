@@ -2,6 +2,7 @@ pipeline{
 
     agent any 
     stages{
+        
 
         stage("compile"){
                
@@ -18,6 +19,23 @@ pipeline{
            }
 
         }
+    }
+
+    post{
+
+        always {
+
+            sh 'echo "always"'
+        }
+
+        success{
+            sh 'echo "success"'
+        }
+
+        failure{
+            sh 'echo "failure"'
+        }
+
     }
 
 }
